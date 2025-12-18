@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Learn about Digital Ascend Arts Production, a global physical theatre and arts production company focused on movement-based performance, artistic depth, and professional rigor.",
+};
+
 export default function AboutPage() {
   return (
     <section className="space-y-16 max-w-4xl">
