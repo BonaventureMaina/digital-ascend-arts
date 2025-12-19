@@ -2,20 +2,28 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://digital-ascend-arts-production.vercel.app"),
+
   title: {
     default: "Digital Ascend Arts Production",
     template: "%s | Digital Ascend Arts Production",
   },
+
   description:
     "Digital Ascend Arts Production is a global physical theatre and arts production company creating movement-based, conceptually rigorous performance work.",
+
+  alternates: {
+    canonical: "/",
+  },
+
   openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://digital-ascend-arts-production.vercel.app",
+    siteName: "Digital Ascend Arts Production",
     title: "Digital Ascend Arts Production",
     description:
       "A global arts production company dedicated to physical theatre and movement-based performance.",
-    url: "https://digital-ascend-arts.vercel.app",
-    siteName: "Digital Ascend Arts Production",
-    locale: "en_US",
-    type: "website",
     images: [
       {
         url: "/og-image.png",
@@ -25,12 +33,18 @@ export const metadata: Metadata = {
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Digital Ascend Arts Production",
     description:
-      "Ascending Through Art — global physical theatre and movement-based performance.",
+      "A global arts production company dedicated to physical theatre and movement-based performance.",
     images: ["/og-image.png"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
