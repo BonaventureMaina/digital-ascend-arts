@@ -1,0 +1,95 @@
+/* ===== Reset ===== */
+* {
+  box-sizing: border-box;
+}
+
+/* ===== Base ===== */
+body {
+  margin: 0;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  line-height: 1.65;
+  color: #111;
+  background-color: #ffffff;
+}
+
+/* ===== Layout ===== */
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem;
+}
+
+section {
+  margin-bottom: 3.5rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1.25rem 3rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* ===== Hero ===== */
+section:first-of-type {
+  margin-bottom: 5rem;
+}
+
+section:first-of-type p:first-of-type {
+  font-size: 1.05rem;
+  color: #555;
+}
+
+/* ===== Typography ===== */
+h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  color: #1e3a5f;
+}
+
+h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+  color: #1e3a5f;
+}
+
+p {
+  margin: 0 0 1.25rem 0;
+  max-width: 60ch;
+}
+
+ul {
+  padding-left: 1.25rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Links ===== */
+a {
+  color: #1e3a5f;
+  text-decoration: underline;
+}
+
+/* ===== Larger Screens ===== */
+@media (min-width: 768px) {
+  main {
+    padding: 5rem 2rem;
+  }
+
+  section {
+    margin-bottom: 5rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+}

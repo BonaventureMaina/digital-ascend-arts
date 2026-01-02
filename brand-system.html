@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAAP Brand System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.8;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+        
+        .section {
+            background: white;
+            margin-bottom: 40px;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .section-subtitle {
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        
+        /* Logo Section */
+        .logo-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .logo-primary {
+            background: #f5f5f5;
+            padding: 60px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo-icon {
+            width: 52px;
+            height: 52px;
+        }
+        
+        .logo-wordmark {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-name {
+            font-size: 26px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: #1a1a1a;
+        }
+        
+        .logo-tagline {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #666;
+            margin-top: 4px;
+        }
+        
+        .logo-specs {
+            background: #fafafa;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid #1a1a1a;
+        }
+        
+        .logo-specs h4 {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .logo-specs ul {
+            list-style: none;
+        }
+        
+        .logo-specs li {
+            padding: 8px 0;
+            color: #555;
+        }
+        
+        .logo-variations {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .variation {
+            background: #f5f5f5;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .variation.dark {
+            background: #1a1a1a;
+        }
+        
+        .variation-label {
+            margin-top: 20px;
+            font-size: 0.85em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .variation.dark .variation-label {
+            color: #999;
+        }
+        
+        /* Color Palettes */
+        .palettes {
+            display: grid;
+            gap: 40px;
+        }
+        
+        .palette {
+            border: 2px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .palette-header {
+            background: #f9f9f9;
+            padding: 20px 30px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .palette-name {
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .palette-description {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        .palette-colors {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+        
+        .color-swatch {
+            padding: 40px 20px;
+            text-align: center;
+            color: white;
+            font-family: 'Space Grotesk', monospace;
+        }
+        
+        .color-name {
+            font-size: 0.85em;
+            margin-bottom: 5px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .color-hex {
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        .color-usage {
+            font-size: 0.75em;
+            margin-top: 8px;
+            opacity: 0.8;
+        }
+        
+        /* Typography */
+        .type-specimen {
+            margin-bottom: 50px;
+        }
+        
+        .type-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .type-name {
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+        
+        .type-role {
+            color: #666;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .type-samples {
+            display: grid;
+            gap: 30px;
+        }
+        
+        .type-sample {
+            padding: 30px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        
+        .type-label {
+            font-size: 0.8em;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        
+        .sample-heading {
+            font-size: 3em;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .sample-subheading {
+            font-size: 2em;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .sample-body {
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #444;
+        }
+        
+        .font-inter { font-family: 'Inter', sans-serif; }
+        .font-space { font-family: 'Space Grotesk', sans-serif; }
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        
+        /* Usage Guidelines */
+        .guidelines-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .guideline-box {
+            padding: 30px;
+            border-radius: 8px;
+            border: 2px solid #eee;
+        }
+        
+        .guideline-box.do {
+            border-color: #22c55e;
+            background: #f0fdf4;
+        }
+        
+        .guideline-box.dont {
+            border-color: #ef4444;
+            background: #fef2f2;
+        }
+        
+        .guideline-box h4 {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .guideline-box.do h4 {
+            color: #15803d;
+        }
+        
+        .guideline-box.dont h4 {
+            color: #b91c1c;
+        }
+        
+        .guideline-box ul {
+            list-style: none;
+        }
+        
+        .guideline-box li {
+            padding: 8px 0;
+            color: #444;
+        }
+        
+        .guideline-box li:before {
+            content: "•";
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .guideline-box.do li:before {
+            color: #22c55e;
+        }
+        
+        .guideline-box.dont li:before {
+            color: #ef4444;
+        }
+        
+        /* Applications */
+        .applications {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .application {
+            background: #f9f9f9;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .application h4 {
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Digital Ascend Arts Production</h1>
+        <p>Brand Identity System v1.0</p>
+    </div>
+    
+    <div class="container">
+        <!-- Logo Section -->
+        <div class="section">
+            <h2 class="section-title">Primary Logo</h2>
+            <p class="section-subtitle">Core brand mark for all primary applications</p>
+            
+            <div class="logo-showcase">
+                <div class="logo-primary">
+                    <div class="logo">
+                        <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="primaryGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#666;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect x="25" y="45" width="8" height="40" fill="url(#primaryGrad)"/>
+                            <rect x="38" y="35" width="8" height="50" fill="url(#primaryGrad)"/>
+                            <rect x="51" y="25" width="8" height="60" fill="url(#primaryGrad)"/>
+                            <rect x="64" y="15" width="8" height="70" fill="url(#primaryGrad)"/>
+                        </svg>
+                        <div class="logo-wordmark">
+                            <div class="logo-name">Digital Ascend</div>
+                            <div class="logo-tagline">Arts Production</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="logo-specs">
+                    <h4>Logo Specifications</h4>
+                    <ul>
+                        <li><strong>Primary Usage:</strong> Horizontal lockup</li>
+                        <li><strong>Minimum Width:</strong> 180px digital / 1.5" print</li>
+                        <li><strong>Clear Space:</strong> Equal to icon height on all sides</li>
+                        <li><strong>Icon-to-wordmark ratio:</strong> 1:4</li>
+                        <li><strong>Gradient Direction:</strong> Bottom to top (dark to light)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3 style="margin-bottom: 20px; font-size: 1.4em;">Logo Variations</h3>
+            <div class="logo-variations">
+                <div class="variation">
+                    <div class="logo" style="transform: scale(0.8);">
+                        <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="var1" x1="0%" y1="100%" x2="0%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#666;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect x="25" y="45" width="8" height="40" fill="url(#var1)"/>
+                            <rect x="38" y="35" width="8" height="50" fill="url(#var1)"/>
+                            <rect x="51" y="25" width="8" height="60" fill="url(#var1)"/>
+                            <rect x="64" y="15" width="8" height="70" fill="url(#var1)"/>
+                        </svg>
+                        <div class="logo-wordmark">
+                            <div class="logo-name">Digital Ascend</div>
+                            <div class="logo-tagline">Arts Production</div>
+                        </div>
+                    </div>
+                    <div class="variation-label">Standard</div>
+                </div>
+                
+                <div class="variation dark">
+                    <div class="logo" style="transform: scale(0.8);">
+                        <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="var2" x1="0%" y1="100%" x2="0%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect x="25" y="45" width="8" height="40" fill="url(#var2)"/>
+                            <rect x="38" y="35" width="8" height="50" fill="url(#var2)"/>
+                            <rect x="51" y="25" width="8" height="60" fill="url(#var2)"/>
+                            <rect x="64" y="15" width="8" height="70" fill="url(#var2)"/>
+                        </svg>
+                        <div class="logo-wordmark">
+                            <div class="logo-name" style="color: #fff;">Digital Ascend</div>
+                            <div class="logo-tagline" style="color: #ccc;">Arts Production</div>
+                        </div>
+                    </div>
+                    <div class="variation-label">Dark Backgrounds</div>
+                </div>
+                
+                <div class="variation">
+                    <svg style="width: 80px; height: 80px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="var3" x1="0%" y1="100%" x2="0%" y2="0%">
+                                <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#666;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="25" y="45" width="8" height="40" fill="url(#var3)"/>
+                        <rect x="38" y="35" width="8" height="50" fill="url(#var3)"/>
+                        <rect x="51" y="25" width="8" height="60" fill="url(#var3)"/>
+                        <rect x="64" y="15" width="8" height="70" fill="url(#var3)"/>
+                    </svg>
+                    <div class="variation-label">Icon Only</div>
+                </div>
+                
+                <div class="variation">
+                    <div style="font-size: 20px; font-weight: 500; letter-spacing: 0.5px; color: #1a1a1a;">
+                        Digital Ascend
+                    </div>
+                    <div style="font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: #666; margin-top: 3px;">
+                        Arts Production
+                    </div>
+                    <div class="variation-label">Wordmark Only</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Color Palettes -->
+        <div class="section">
+            <h2 class="section-title">Color Palettes</h2>
+            <p class="section-subtitle">Choose one palette for primary brand implementation</p>
+            
+            <div class="palettes">
+                <!-- Palette 1: Monochrome Sophisticate -->
+                <div class="palette">
+                    <div class="palette-header">
+                        <div class="palette-name">Option 1: Monochrome Sophisticate</div>
+                        <div class="palette-description">Most minimalist. Refined, elegant, timeless. Best for pure sophistication.</div>
+                    </div>
+                    <div class="palette-colors">
+                        <div class="color-swatch" style="background: #0a0a0a;">
+                            <div class="color-name">Primary Black</div>
+                            <div class="color-hex">#0a0a0a</div>
+                            <div class="color-usage">Headlines, logo, emphasis</div>
+                        </div>
+                        <div class="color-swatch" style="background: #1a1a1a;">
+                            <div class="color-name">Charcoal</div>
+                            <div class="color-hex">#1a1a1a</div>
+                            <div class="color-usage">Backgrounds, cards</div>
+                        </div>
+                        <div class="color-swatch" style="background: #666666;">
+                            <div class="color-name">Steel Gray</div>
+                            <div class="color-hex">#666666</div>
+                            <div class="color-usage">Body text, borders</div>
+                        </div>
+                        <div class="color-swatch" style="background: #999999; color: #1a1a1a;">
+                            <div class="color-name">Silver</div>
+                            <div class="color-hex">#999999</div>
+                            <div class="color-usage">Secondary text, icons</div>
+                        </div>
+                        <div class="color-swatch" style="background: #f5f5f5; color: #1a1a1a;">
+                            <div class="color-name">Off White</div>
+                            <div class="color-hex">#f5f5f5</div>
+                            <div class="color-usage">Backgrounds, surfaces</div>
+                        </div>
+                        <div class="color-swatch" style="background: #ffffff; color: #1a1a1a; border: 1px solid #ddd;">
+                            <div class="color-name">Pure White</div>
+                            <div class="color-hex">#ffffff</div>
+                            <div class="color-usage">Text on dark, highlights</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Palette 2: Warm Charcoal -->
+                <div class="palette">
+                    <div class="palette-header">
+                        <div class="palette-name">Option 2: Warm Charcoal</div>
+                        <div class="palette-description">Sophisticated with warmth. Burgundy accent adds theater/passion without being loud.</div>
+                    </div>
+                    <div class="palette-colors">
+                        <div class="color-swatch" style="background: #1a1a1a;">
+                            <div class="color-name">Primary Black</div>
+                            <div class="color-hex">#1a1a1a</div>
+                            <div class="color-usage">Headlines, logo</div>
+                        </div>
+                        <div class="color-swatch" style="background: #2d2d2d;">
+                            <div class="color-name">Warm Gray</div>
+                            <div class="color-hex">#2d2d2d</div>
+                            <div class="color-usage">Backgrounds, surfaces</div>
+                        </div>
+                        <div class="color-swatch" style="background: #8b2f39;">
+                            <div class="color-name">Burgundy</div>
+                            <div class="color-hex">#8b2f39</div>
+                            <div class="color-usage">Accent, CTAs, highlights</div>
+                        </div>
+                        <div class="color-swatch" style="background: #666666;">
+                            <div class="color-name">Slate</div>
+                            <div class="color-hex">#666666</div>
+                            <div class="color-usage">Body text, secondary</div>
+                        </div>
+                        <div class="color-swatch" style="background: #d4a574; color: #1a1a1a;">
+                            <div class="color-name">Gold</div>
+                            <div class="color-hex">#d4a574</div>
+                            <div class="color-usage">Subtle accents, borders</div>
+                        </div>
+                        <div class="color-swatch" style="background: #f9f7f4; color: #1a1a1a;">
+                            <div class="color-name">Cream</div>
+                            <div class="color-hex">#f9f7f4</div>
+                            <div class="color-usage">Backgrounds, light surfaces</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Palette 3: Contemporary Edge -->
+                <div class="palette">
+                    <div class="palette-header">
+                        <div class="palette-name">Option 3: Contemporary Edge</div>
+                        <div class="palette-description">Bold and modern. Deep blue adds digital/tech feel while maintaining sophistication.</div>
+                    </div>
+                    <div class="palette-colors">
+                        <div class="color-swatch" style="background: #0f1419;">
+                            <div class="color-name">Deep Black</div>
+                            <div class="color-hex">#0f1419</div>
+                            <div class="color-usage">Primary backgrounds</div>
+                        </div>
+                        <div class="color-swatch" style="background: #1a1a1a;">
+                            <div class="color-name">Charcoal</div>
+                            <div class="color-hex">#1a1a1a</div>
+                            <div class="color-usage">Headlines, logo</div>
+                        </div>
+                        <div class="color-swatch" style="background: #1e3a5f;">
+                            <div class="color-name">Midnight Blue</div>
+                            <div class="color-hex">#1e3a5f</div>
+                            <div class="color-usage">Accent, buttons, links</div>
+                        </div>
+                        <div class="color-swatch" style="background: #4a7ba7;">
+                            <div class="color-name">Steel Blue</div>
+                            <div class="color-hex">#4a7ba7</div>
+                            <div class="color-usage">Interactive elements</div>
+                        </div>
+                        <div class="color-swatch" style="background: #e8eef3; color: #1a1a1a;">
+                            <div class="color-name">Ice</div>
+                            <div class="color-hex">#e8eef3</div>
+                            <div class="color-usage">Light backgrounds</div>
+                        </div>
+                        <div class="color-swatch" style="background: #ffffff; color: #1a1a1a; border: 1px solid #ddd;">
+                            <div class="color-name">White</div>
+                            <div class="color-hex">#ffffff</div>
+                            <div class="color-usage">Text on dark, cards</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Typography -->
+        <div class="section">
+            <h2 class="section-title">Typography System</h2>
+            <p class="section-subtitle">Flexible type families for digital applications</p>
+            
+            <!-- Option 1: Inter -->
+            <div class="type-specimen">
+                <div class="type-header">
+                    <div class="type-name font-inter">Inter</div>
+                    <div class="type-role">Option 1: Primary Typeface</div>
+                </div>
+                <div class="type-samples">
+                    <div class="type-sample">
+                        <div class="type-label">Heading Example</div>
+                        <div class="sample-heading font-inter" style="font-weight: 600;">Physical Theater Reimagined</div>
+                    </div>
+                    <div class="type-sample">
+                        <div class="type-label">Body Text Example</div>
+                        <div class="sample-body font-inter">
+                            Digital Ascend Arts Production creates boundary-pushing physical theater experiences. 
+                            Our work explores the intersection of embodied performance and contemporary interdisciplinary art, 
+                            bringing movement-based storytelling to audiences seeking transformative artistic encounters.
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px; padding: 20px; background: #f9f9f9; border-radius: 8px;">
+                    <strong>Rationale:</strong> Inter is a modern, highly legible sans-serif designed for screens. 
+                    Excellent readability at all sizes. Professional without being corporate. Google Fonts available.
+                    <br><strong>Weights:</strong> 300 (Light), 400 (Regular), 500 (Medium), 600 (Semibold), 700 (Bold)
+                </div>
+            </div>
+            
+            <!-- Option 2: Space Grotesk -->
+            <div class="type-specimen">
+                <div class="type-header">
+                    <div class="type-name font-space">Space Grotesk</div>
+                    <div class="type-role">Option 2: Primary Typeface</div>
+                </div>
+                <div class="type-samples">
+                    <div class="type-sample">
+                        <div class="type-label">Heading Example</div>
+                        <div class="sample-heading font-space" style="font-weight: 600;">Physical Theater Reimagined</div>
+                    </div>
+                    <div class="type-sample">
+                        <div class="type-label">Body Text Example</div>
+                        <div class="sample-body font-space">
+                            Digital Ascend Arts Production creates boundary-pushing physical theater experiences. 
+                            Our work explores the intersection of embodied performance and contemporary interdisciplinary art, 
+                            bringing movement-based storytelling to audiences seeking transformative artistic encounters.
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px; padding: 20px; background: #f9f9f9; border-radius: 8px;">
+                    <strong>Rationale:</strong> Space Grotesk has more personality—geometric with unique character. 
+                    Feels contemporary and slightly technical, aligning with "Digital." More distinctive than Inter.
+                    <br><strong>Weights:</strong> 400 (Regular), 500 (Medium), 600 (Semibold), 700 (Bold)
+                </div>
+            </div>
+            
+            <!-- Optional: Playfair Display for accent -->
+            <div class="type-specimen">
+                <div class="type-header">
+                    <div class="type-name font-playfair">Playfair Display</div>
+                    <div class="type-role">Optional: Display/Accent Typeface</div>
+                </div>
+                <div class="type-samples">
+                    <div class="type-sample">
+                        <div class="type-label">Large Display Example</div>
+                        <div class="sample-heading font-playfair" style="font-weight: 600;">Movement. Expression. Ascension.</div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px; padding: 20px; background: #f9f9f9; border-radius: 8px;">
+                    <strong>Rationale:</strong> If you want a secondary typeface for special occasions (hero sections, quotes, programs), 
+                    Playfair adds elegance and theatrical flair. Use sparingly. Pairs well with Inter or Space Grotesk.
+                    <br><strong>Usage:</strong> Large headlines, pull quotes, program covers only. Not for body text.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Usage Guidelines -->
+        <div class="section">
+            <h2 class="section-title">Usage Guidelines</h2>
+            <p class="section-subtitle">Core principles for maintaining brand integrity</p>
+            
+            <div class="guidelines-grid">
+                <div class="guideline-box do">
+                    <h4>✓ DO</h4>
+                    <ul>
+                        <li>Maintain minimum clear space around logo</li>
+                        <li>Use approved color combinations</li>
+                        <li>Scale logo proportionally</li>
+                        <li>Use icon-only version for social avatars</li>
+                        <li>Ensure logo has sufficient contrast with background</li>
+                        <li>Use vector formats when possible (SVG for web)</li>
+                    </ul>
+                </div>
+                
+                <div class="guideline-box dont">
+                    <h4>✗ DON'T</h4>
+                    <ul>
+                        <li>Stretch or distort the logo</li>
+                        <li>Change gradient colors or direction</li>
+                        <li>Add effects (shadows, outlines, glows)</li>
+                        <li>Place logo on busy backgrounds</li>
+                        <li>Separate icon from wordmark in primary logo</li>
+                        <li>Use logo smaller than minimum size</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px; padding: 30px; background: #f9f9f9; border-left: 4px solid #1a1a1a; border-radius: 8px;">
+                <h4 style="margin-bottom: 15px; font-size: 1.2em;">Clear Space Rule</h4>
+                <p style="color: #555;">
+                    Maintain clear space equal to the height of the icon on all sides of the logo. 
+                    This ensures the logo has breathing room and remains visually distinct from surrounding elements.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Application Examples -->
+        <div class="section">
+            <h2 class="section-title">Application Examples</h2>
+            <p class="section-subtitle">How the brand works across contexts</p>
+            
+            <div class="applications">
+                <div class="application" style="background: #1a1a1a; color: white;">
+                    <h4>Website Header</h4>
+                    <div class="logo" style="transform: scale(0.7);">
+                        <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="app1" x1="0%" y1="100%" x2="0%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#999;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect x="25" y="45" width="8" height="40" fill="url(#app1)"/>
+                            <rect x="38" y="35" width="8" height="50" fill="url(#app1)"/>
+                            <rect x="51" y="25" width="8" height="60" fill="url(#app1)"/>
+                            <rect x="64" y="15" width="8" height="70" fill="url(#app1)"/>
+                        </svg>
+                        <div class="logo-wordmark">
+                            <div class="logo-name" style="color: #fff;">Digital Ascend</div>
+                            <div class="logo-tagline" style="color: #ccc;">Arts Production</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="application">
+                    <h4>Business Card</h4>
+                    <div class="logo" style="transform: scale(0.6);">
+                        <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="app2" x1="0%" y1="100%" x2="0%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#666;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect x="25" y="45" width="8" height="40" fill="url(#app2)"/>
+                            <rect x="38" y="35" width="8" height="50" fill="url(#app2)"/>
+                            <rect x="51" y="25" width="8" height="60" fill="url(#app2)"/>
+                            <rect x="64" y="15" width="8" height="70" fill="url(#app2)"/>
+                        </svg>
+                        <div class="logo-wordmark">
+                            <div class="logo-name">Digital Ascend</div>
+                            <div class="logo-tagline">Arts Production</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="application" style="background: white; border: 2px solid #eee;">
+                    <h4>Social Media Avatar</h4>
+                    <svg style="width: 100px; height: 100px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="app3" x1="0%" y1="100%" x2="0%" y2="0%">
+                                <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#666;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="25" y="45" width="8" height="40" fill="url(#app3)"/>
+                        <rect x="38" y="35" width="8" height="50" fill="url(#app3)"/>
+                        <rect x="51" y="25" width="8" height="60" fill="url(#app3)"/>
+                        <rect x="64" y="15" width="8" height="70" fill="url(#app3)"/>
+                    </svg>
+                </div>
+                
+                <div class="application" style="background: #f5f5f5;">
+                    <h4>Email Signature</h4>
+                    <div class="logo" style="transform: scale(0.5);">
+                        <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="app4" x1="0%" y1="100%" x2="0%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#666;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect x="25" y="45" width="8" height="40" fill="url(#app4)"/>
+                            <rect x="38" y="35" width="8" height="50" fill="url(#app4)"/>
+                            <rect x="51" y="25" width="8" height="60" fill="url(#app4)"/>
+                            <rect x="64" y="15" width="8" height="70" fill="url(#app4)"/>
+                        </svg>
+                        <div class="logo-wordmark">
+                            <div class="logo-name">Digital Ascend</div>
+                            <div class="logo-tagline">Arts Production</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Next Steps -->
+        <div class="section" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); color: white;">
+            <h2 class="section-title" style="color: white;">Implementation Ready</h2>
+            <p class="section-subtitle" style="color: #ccc;">Make your selections to proceed with website build</p>
+            
+            <div style="padding: 30px; background: rgba(255,255,255,0.05); border-radius: 8px; margin-top: 30px;">
+                <h3 style="margin-bottom: 20px; font-size: 1.3em;">Required Decisions:</h3>
+                <ol style="font-size: 1.1em; line-height: 2; margin-left: 20px;">
+                    <li><strong>Color Palette:</strong> Option 1, 2, or 3?</li>
+                    <li><strong>Primary Typeface:</strong> Inter or Space Grotesk?</li>
+                    <li><strong>Display Typeface:</strong> Add Playfair Display? (Yes/No)</li>
+                </ol>
+                <p style="margin-top: 30px; opacity: 0.9; font-size: 0.95em;">
+                    Once you decide, we move to website architecture and implementation.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
