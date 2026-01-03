@@ -30,6 +30,22 @@ footer {
   color: #555;
 }
 
+/* ===== Navigation ===== */
+nav {
+  margin-bottom: 3rem;
+}
+
+nav a {
+  margin-right: 1.5rem;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: #1e3a5f;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
 /* ===== Hero ===== */
 section:first-of-type {
   margin-bottom: 5rem;
