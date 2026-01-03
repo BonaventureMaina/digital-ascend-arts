@@ -40,10 +40,25 @@ nav a {
   font-size: 0.95rem;
   text-decoration: none;
   color: #1e3a5f;
+  position: relative;
 }
 
-nav a:hover {
-  text-decoration: underline;
+/* Subtle underline motion */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background-color: #1e3a5f;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms ease;
+}
+
+nav a:hover::after {
+  transform: scaleX(1);
 }
 
 /* ===== Hero ===== */
@@ -89,6 +104,38 @@ li {
 a {
   color: #1e3a5f;
   text-decoration: underline;
+}
+
+/* ===== Section Fade-in ===== */
+section {
+  opacity: 0;
+  animation: fadeIn 600ms ease forwards;
+}
+
+section:nth-of-type(1) { animation-delay: 0ms; }
+section:nth-of-type(2) { animation-delay: 80ms; }
+section:nth-of-type(3) { animation-delay: 160ms; }
+section:nth-of-type(4) { animation-delay: 240ms; }
+section:nth-of-type(5) { animation-delay: 320ms; }
+section:nth-of-type(6) { animation-delay: 400ms; }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Reduced Motion Respect ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 /* ===== Larger Screens ===== */
