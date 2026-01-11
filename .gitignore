@@ -1,0 +1,100 @@
+# ===== Operating System Files =====
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# ===== Editor & IDE Files =====
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# JetBrains (WebStorm, PHPStorm, etc.)
+.idea/
+*.iml
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ===== Development Files =====
+
+# Node modules (if you ever add build tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Environment variables (if you add backend later)
+.env
+.env.local
+.env.*.local
+
+# Log files
+*.log
+
+# ===== Image Working Files =====
+
+# Photoshop
+*.psd
+
+# GIMP
+*.xcf
+
+# Illustrator
+*.ai
+
+# Unoptimized originals (keep optimized versions only)
+assets/images/originals/
+assets/images/*-original.*
+assets/images/*-unoptimized.*
+
+# ===== Backup & Temporary Files =====
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+
+# Temporary files
+*.tmp
+*.temp
+
+# ===== Build Artifacts (Future-Proofing) =====
+
+# If you ever add a build process
+dist/
+build/
+out/
+.cache/
+
+# ===== Vercel =====
+
+# Vercel CLI
+.vercel
