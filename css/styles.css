@@ -517,3 +517,94 @@ footer p {
     font-size: 0.85rem;
   }
 }
+
+/* ===== Hero Background Image ===== */
+
+.hero {
+  position: relative;
+  background-image: url('../assets/images/hero-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 20, 25, 0.75) 0%,
+    rgba(30, 58, 95, 0.70) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+[data-theme="light"] .hero::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.82) 0%,
+    rgba(232, 238, 243, 0.85) 100%
+  );
+}
+
+/* ===== Experience Section Image ===== */
+
+.experience-image {
+  margin: 2.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.experience-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.experience-image:hover img {
+  transform: scale(1.02);
+}
+
+/* ===== Production Card Image ===== */
+
+.production-image {
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.production-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== Responsive Image Adjustments ===== */
+
+@media (max-width: 640px) {
+  .hero {
+    background-position: center center;
+  }
+
+  .experience-image,
+  .production-image {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+}
